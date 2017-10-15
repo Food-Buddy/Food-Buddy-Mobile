@@ -1,29 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared.module';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { Pro } from '@ionic/pro';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { MODULES, PROVIDERS } from './app.imports';
 
+const IonicPro = Pro.init('b9399440', {
+  appVersion: "0.0.1"
+});
+
+export class MyErrorHandler implements ErrorHandler {
+  handleError(err: any): void {
+    IonicPro.monitoring.handleNewError(err);
+  }
+}
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+    MODULES,
+    IonicModule.forRoot(MyApp),
+    SharedModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
+    PROVIDERS,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
