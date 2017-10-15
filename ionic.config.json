@@ -1,5 +1,6 @@
 {
   "name": "Food-Buddy-Mobile-UI",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "b9399440",
+  "type": "ionic-angular",
+  "integrations": {}
 }
