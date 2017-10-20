@@ -1,15 +1,19 @@
-page-login-background-slider {
+page-login {
+  .toolbar-background{
+    background: transparent !important;
+  }
+  .bar-button-menutoggle{
+    color: white !important;
+  }
     .scroll-content {
       margin-top: 0 !important;
     }
     .logo {
-      width: 70%;
-      height: auto;
-      padding-top: 9vh;
+      padding-top: 5vh;
       margin-bottom: 15vh;
-    }
-    span {
-      color: white;
+      color: red;
+      font-size: 3em;
+      font-weight: bold;
     }
     .slide-background {
       background-size: cover;

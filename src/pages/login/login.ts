@@ -40,7 +40,7 @@ export class LoginPage {
     console.log('Reset password clicked');
   }
 
-  doLogin() {
+  login() {
     if (!this.loginForm.valid) {
       console.log('Invalid or empty data');
     } else {
@@ -49,5 +49,9 @@ export class LoginPage {
 
       console.log('user data', userEmail, userPassword);
     }
+  }
+
+  signUp(){
+    this.navCtrl.push('SignUpPage');
   }
 }

@@ -1,4 +1,6 @@
 // Global state (used for theming)
+import { AppConstants } from './app.constants';
+import { AppConfig } from './app.config';
 import { AppState } from './app.global';
 
 // Providers
@@ -48,6 +50,8 @@ export const PROVIDERS = [
   AlertService,
   ToastService,
   AppState,
+  AppConfig,
+  AppConstants,
   CameraProvider,
   NativeGoogleMapsProvider,
 

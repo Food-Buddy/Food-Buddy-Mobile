@@ -1,5 +1,8 @@
 <ion-header no-border>
-  <ion-navbar transparent>
+  <ion-navbar trasparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -9,7 +12,7 @@
   </ion-slides>
   <div class="login-container">
     <div class="logo">Food Buddy</div>
-    <form (submit)="doLogin()">
+    <form>
       <strong>Login:</strong>
       <ion-item>
         <ion-input type="email" placeholder="Email"></ion-input>
@@ -17,8 +20,11 @@
       <ion-item>
         <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
-      <button ion-button margin color="danger">LOGIN</button>
-      <p (click)="openResetPassword()"><strong>Forgot your password?</strong></p>
+      <button (click)="login()" ion-button margin color="danger">LOGIN</button>
+      <button (click)="signUp()" ion-button margin color="danger">Sign up</button>
+      <p (click)="openResetPassword()">
+        <strong>Forgot your password?</strong>
+      </p>
     </form>
   </div>
 </ion-content>

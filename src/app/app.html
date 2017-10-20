@@ -4,18 +4,17 @@
         <ion-content>
             <div class="menu-header">
                 <!--material-design-background-->
-                <img class="user-avatar round" [src]="chosenPicture || placeholder" onerror="this.src='"
-                />
+                <img class="user-avatar round" [src]="chosenPicture || placeholder" onerror="this.src=''" />
                 <p class="name">Paula Bolliger</p>
                 <p class="e-mail">pbolliger@email.com</p>
             </div>
             <ion-list no-lines>
-                <button menuClose="left" ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
-                    <div *ngIf="p.show == true">
+                <ng-template ngFor let-p [ngForOf]="pages" let-i="index" >
+                    <button *ngIf="p.show == true" menuClose="left" ion-item detail-none (click)="openPage(p)">
                         <ion-icon [name]="p.icon" item-left></ion-icon>
                         {{p.title}}
-                    </div>
-                </button>
+                    </button>
+                </ng-template>
             </ion-list>
         </ion-content>
     </ion-menu>

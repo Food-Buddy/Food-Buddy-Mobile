@@ -8,10 +8,10 @@ import { AppState } from './app.global';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp { 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'HomePage';
+  rootPage: any = 'LoginPage';
   activePage = new Subject();
 
   pages: Array<{ title: string, component: any, active: boolean, show: boolean, icon: string }>;
@@ -30,10 +30,7 @@ export class MyApp {
       { title: 'Log in', component: 'LoginPage', active: false, show: true, icon: 'home' },
       { title: 'Home', component: 'HomePage', active: true, show: true, icon: 'home' },
       { title: 'Food List', component: 'FoodListPage', active: false, show: true, icon: 'map' },
-      {
-        title: 'Cook List',
-        component: 'CookListPage', active: false, show: true, icon: 'ionic'
-      },
+      { title: 'Cook List', component: 'CookListPage', active: false, show: true, icon: 'ionic' },
       { title: 'Orders', component: 'OrdersPage', active: false, show: false, icon: 'body' },
       { title: 'Community List', component: 'CommunityListPage', active: false,  show: true, icon: 'bookmarks' },
       { title: 'History', component: 'HistoryPage', active: false, show: false, icon: 'book' },
