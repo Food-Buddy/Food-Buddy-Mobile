@@ -9,7 +9,7 @@
                 <p class="e-mail">pbolliger@email.com</p>
             </div>
             <ion-list no-lines>
-                <ng-tesmplate ngFor let-p [ngForOf]="pages" let-i="index" >
+                <ng-template ngFor let-p [ngForOf]="pages" let-i="index" >
                     <button *ngIf="p.show == true" menuClose="left" ion-item detail-none (click)="openPage(p)">
                         <ion-icon [name]="p.icon" item-left></ion-icon>
                         {{p.title}}
