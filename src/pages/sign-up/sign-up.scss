@@ -4,6 +4,10 @@ page-sign-up {
     font-size: 0.7em;
   }
 }
-.app-important-red{
-    color: red;
+
+page-sign-up {
+  .error-message {
+    float: left;
+    padding-left: 10px;
+  }
 }

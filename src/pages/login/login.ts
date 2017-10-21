@@ -1,3 +1,5 @@
+import { UserService } from '../../providers/user.service';
+import { ToastService } from '../../providers/util/toast.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -23,12 +25,13 @@ export class LoginPage {
     'assets/img/background/background-4.jpeg'
   ];
   public loginForm: any;
+  submitAttempted: boolean;
 
-  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private toastSer: ToastService, private userSer: UserService) {
+    this.submitAttempted = false;
     this.loginForm = formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.compose([Validators.minLength(6),
-        Validators.required])]
+      email: ['', Validators.compose([Validators.email, Validators.required])],
+      password: ['', Validators.required]
     });
   }
 
@@ -41,17 +44,23 @@ export class LoginPage {
   }
 
   login() {
+    this.submitAttempted = true;
     if (!this.loginForm.valid) {
-      console.log('Invalid or empty data');
-    } else {
-      const userEmail = this.loginForm.value.email;
-      const userPassword = this.loginForm.value.password;
-
-      console.log('user data', userEmail, userPassword);
+      return;
     }
+    const user = this.loginForm.value;
+    this.userSer.login(user)
+      .then((result: any) => {
+        if (result && result.uid) {
+          this.toastSer.create('Logged in Successfully!!!', false, 5000);
+          this.navCtrl.push('HomePage');
+        } else {
+          this.toastSer.create('Login failed! Please check your credentials!!!', false, 5000);
+        }
+      })
   }
 
-  signUp(){
+  signUp() {
     this.navCtrl.push('SignUpPage');
   }
 }

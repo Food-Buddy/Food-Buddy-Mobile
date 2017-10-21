@@ -1,8 +1,5 @@
 <ion-header no-border>
   <ion-navbar trasparent>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -12,19 +9,30 @@
   </ion-slides>
   <div class="login-container">
     <div class="logo">Food Buddy</div>
-    <form>
+    <form [formGroup]="loginForm">
       <strong>Login:</strong>
+
       <ion-item>
-        <ion-input type="email" placeholder="Email"></ion-input>
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
       </ion-item>
+      <div class="app-error-message error-message" *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempted)">
+        Please enter a valid email id.
+      </div>
+
       <ion-item>
-        <ion-input type="password" placeholder="Password"></ion-input>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
       </ion-item>
+      <div class="app-error-message error-message" *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempted)">
+        Please enter a password.
+      </div>
+
       <button (click)="login()" ion-button margin color="danger">LOGIN</button>
       <button (click)="signUp()" ion-button margin color="danger">Sign up</button>
       <p (click)="openResetPassword()">
         <strong>Forgot your password?</strong>
       </p>
+      <div class="app-info">Items marked with (
+        <span class="app-important-red">*</span>) are mandatory.</div>
     </form>
   </div>
 </ion-content>

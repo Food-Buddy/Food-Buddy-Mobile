@@ -8,7 +8,7 @@ import { AppState } from './app.global';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp { 
+export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'LoginPage';
@@ -32,7 +32,7 @@ export class MyApp {
       { title: 'Food List', component: 'FoodListPage', active: false, show: true, icon: 'map' },
       { title: 'Cook List', component: 'CookListPage', active: false, show: true, icon: 'ionic' },
       { title: 'Orders', component: 'OrdersPage', active: false, show: false, icon: 'body' },
-      { title: 'Community List', component: 'CommunityListPage', active: false,  show: true, icon: 'bookmarks' },
+      { title: 'Community List', component: 'CommunityListPage', active: false, show: true, icon: 'bookmarks' },
       { title: 'History', component: 'HistoryPage', active: false, show: false, icon: 'book' },
       { title: 'Offers', component: 'OffersPage', active: false, show: true, icon: 'map' },
       { title: 'Settings', component: 'SettingsPage', active: false, show: false, icon: 'ionic' },
@@ -60,7 +60,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
     this.activePage.next(page);
   }
 }

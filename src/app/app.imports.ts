@@ -1,4 +1,5 @@
 // Global state (used for theming)
+import { UserService } from '../providers/user.service';
 import { AppConstants } from './app.constants';
 import { AppConfig } from './app.config';
 import { AppState } from './app.global';
@@ -54,6 +55,9 @@ export const PROVIDERS = [
   AppConstants,
   CameraProvider,
   NativeGoogleMapsProvider,
+
+  //API service
+  UserService,
 
   // Ionic native specific providers
   Camera,
